@@ -1,61 +1,31 @@
-
-import {Text,View,SafeAreaView,StyleSheet,Platform,ScrollView} from 'react-native';
-import PokemonCard from "./components/PokemonCard";
+import 'react-native-gesture-handler';
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import * as React from 'react';
+import {StyleSheet} from "react-native"
+import Pokemon from "./Screen/Pokemon"
+import HomePage from "./Screen/HomePage"
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
-  const charmanderData = {
-    name: "Charmander",
-    image: require("./assets/charmander.png"),
-    type: "Fire",
-    hp: 39,
-    moves: ["Scratch", "Ember", "Growl", "Leer"],
-    weaknesses: ["Water", "Rock"],
-  };
-
-  const squirtleData = {
-    name: "Squirtle",
-    image: require("./assets/squirtle.png"), // Replace with the actual image path
-    type: "Water",
-    hp: 44,
-    moves: ["Tackle", "Water Gun", "Tail Whip", "Withdraw"],
-    weaknesses: ["Electric", "Grass"],
-  };
-
-  const bulbasaurData = {
-    name: "Bulbasaur",
-    image: require("./assets/bulbasaur.png"), // Replace with the actual image path
-    type: "Grass",
-    hp: 45,
-    moves: ["Tackle", "Vine Whip", "Growl", "Leech Seed"],
-    weaknesses: ["Fire", "Ice", "Flying", "Psychic"],
-  };
-
-  const pikachuData = {
-    name: "Pikachu",
-    image: require("./assets/pikachu.png"), // Replace with the actual image path
-    type: "Electric",
-    hp: 35,
-    moves: ["Quick Attack", "Thunderbolt", "Tail Whip", "Growl"],
-    weaknesses: ["Ground"],
-  };
+   const Drawer = createDrawerNavigator();
   return (
-        <SafeAreaView  style={styles.container}>
-          <ScrollView>
-           <PokemonCard {...charmanderData} />
-           <PokemonCard {...squirtleData} />
-           <PokemonCard {...bulbasaurData} />
-           <PokemonCard {...pikachuData} />
-           </ScrollView>
-        </SafeAreaView>
+    <NavigationContainer>
+      <Drawer.Navigator screenOptions={{
+      drawerActiveTintColor:"darkblue",
+      drawerInactiveTintColor:"orange",
+      drawerActiveBackgroundColor:"white",
+      drawerContentStyle:{
+        backgroundColor:"black",
+      }}
+  } >
+        <Drawer.Screen name="HomePage" component={HomePage}></Drawer.Screen>
+        <Drawer.Screen name="Pokemon" component={Pokemon}></Drawer.Screen>
+    </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:"lightgrey",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+
   
   /*box:{
     justifyContent:"center",

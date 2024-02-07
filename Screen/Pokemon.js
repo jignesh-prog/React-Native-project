@@ -54,7 +54,7 @@ export default function Pokemon() {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:"lightgrey",
+    backgroundColor:"rgb(176,185,221)",
     paddingTop: Platform.OS === "android" ? 25 : 0,
   },
   

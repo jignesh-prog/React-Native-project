@@ -1,16 +1,26 @@
 import 'react-native-gesture-handler';
 import {StyleSheet,} from "react-native"
-import RootNavigator from './Navigation/RootNavigator';
-import { NavigationContainer } from '@react-navigation/native';
-export default function App() {
- return (
-  <NavigationContainer style={styles.Container} >
-  <RootNavigator/>
- </NavigationContainer>    
-  )
+import MainStack from './MainStack';
+export default function RootNavigator() {
+  return (
+   <> 
+   <MainStack/>
+   </>
+     
+   
+  );
 }
 
 const styles = StyleSheet.create({
+Container:{
+ flex:1,
+},
+signin:{
+  color:"black"
+},
+signup:{
+  color:"green"
+},
 
   
   /*box:{

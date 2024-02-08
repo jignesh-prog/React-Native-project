@@ -1,2 +1,2 @@
 # React-Native-project
-learning of react native
+React native application created with login and signup and logout function. Drawer and Stack Navigation has been added connected with Firebase for Authentication service. 
